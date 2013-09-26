@@ -1,0 +1,17 @@
+## generic files to ignore
+*.lock
+*.DS_Store
+*.swp
+*.out
+*.class
+*.log
+*.pyc
+*.lock
+*~
+
+tmp/
+bin/
+lib/
+lib64/
+include/
+
