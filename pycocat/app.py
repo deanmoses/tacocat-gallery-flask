@@ -1,9 +1,9 @@
 import sys, os, logging
 from flask import Flask, jsonify, request, redirect, url_for
-from flask.ext.login import LoginManager, login_required
+from flask.ext.login import LoginManager, login_required, login_user, logout_user
 from werkzeug.exceptions import default_exceptions, HTTPException
 from werkzeug.utils import secure_filename
-from pycocat import User
+from pycocat.User import User
 
 __all__ = ['make_json_app']
 
@@ -72,10 +72,36 @@ def not_found(error=None):
 	return resp
 
 #
+# handle login request
+#
+@app.route("/login", methods=['GET', 'POST'])
+def login():
+
+		# TODO: login and validate the user...
+
+		# for now fake a user
+		user = User()
+		user.username = 'moses'
+
+		# I believe this sets up the cookies in the response
+		login_user(user)
+
+		# Let client know everything's cool
+		return jsonify(message='Successful login')
+
+#
+# handle logout request
+#
+@app.route("/logout", methods=['GET', 'POST'])
+def logout():
+    logout_user()
+    return jsonify(message="Successful logout")
+#
 # photo upload
 #
 @app.route("/upload", methods=['POST'])
-def doUpload():
+@login_required
+def upload():
 	app.logger.debug('doUpload()')
 	file = request.files['file']
 
@@ -98,12 +124,12 @@ def doUpload():
 	return jsonify(message='Uploaded: ' + filename)
 
 #
-# authentication
+# authentication test
 #
-@app.route("/login", methods=['GET', 'POST', 'PUT', 'PATCH'])
+@app.route("/", methods=['GET', 'POST', 'PUT', 'PATCH'])
 @login_required
-def doMain(path):
-		app.logger.debug('doMain()')
+def index():
+		app.logger.debug('index()')
 
 		#return "path: %s" %  path
 

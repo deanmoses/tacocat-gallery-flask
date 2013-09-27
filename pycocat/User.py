@@ -13,6 +13,11 @@ class User(UserMixin):
 		'''Username property'''
 		return self._username
 
+	@username.setter
+	def username(self, username):
+		if not username: raise ValueError("username cannot be empty")
+		self._username=username
+
 	@property
 	def password(self):
 		'''Password property'''
@@ -26,4 +31,6 @@ class User(UserMixin):
 	#
 	@staticmethod
 	def get(username):
-		return User(username)
+		user = User()
+		user.username = username
+		return user
