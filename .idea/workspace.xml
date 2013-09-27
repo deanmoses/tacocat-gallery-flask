@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef00a4c9-80d5-49b0-b77a-ddc159d640ee" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pycocat/User.py" afterPath="$PROJECT_DIR$/pycocat/User.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pycocat/app.py" afterPath="$PROJECT_DIR$/pycocat/app.py" />
     </list>
     <ignored path="tacocat-gallery-flask.iws" />
@@ -50,7 +49,7 @@
       <file leaf-file-name="app.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pycocat/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="81" column="29" selection-start="2015" selection-end="2015" vertical-scroll-proportion="0.33498758" vertical-offset="945" max-vertical-offset="2760">
+            <state line="26" column="0" selection-start="803" selection-end="803" vertical-scroll-proportion="0.35359803" vertical-offset="105" max-vertical-offset="2655">
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -428,7 +427,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32958478" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25866666" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25866666" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25951558" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -564,7 +563,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pycocat/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="29" selection-start="2015" selection-end="2015" vertical-scroll-proportion="0.33498758" vertical-offset="945" max-vertical-offset="2760">
+        <state line="26" column="0" selection-start="803" selection-end="803" vertical-scroll-proportion="0.35359803" vertical-offset="105" max-vertical-offset="2655">
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>

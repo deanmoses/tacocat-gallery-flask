@@ -26,7 +26,7 @@ def make_json_app(import_name, **kwargs):
 		return response
 
 	app = Flask(import_name, **kwargs)
-	doJsonErrors = False
+	doJsonErrors = True
 	if doJsonErrors:
 		for code in default_exceptions.iterkeys():
 			app.error_handler_spec[None][code] = make_json_error
@@ -63,13 +63,6 @@ if not app.debug:
 	file_handler = FileHandler('app.log')
 	file_handler.setLevel(logging.INFO)
 	app.logger.addHandler(file_handler)
-
-
-@app.errorhandler(404)
-def not_found(error=None):
-	resp = jsonify(status=404, message='Not Found: ' + request.url)
-	resp.status_code = 404
-	return resp
 
 #
 # handle login request
