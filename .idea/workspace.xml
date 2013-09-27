@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef00a4c9-80d5-49b0-b77a-ddc159d640ee" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pycocat/User.py" afterPath="$PROJECT_DIR$/pycocat/User.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pycocat/app.py" afterPath="$PROJECT_DIR$/pycocat/app.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="tacocat-gallery-flask.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -58,13 +58,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="app.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pycocat/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="212" column="44" selection-start="5226" selection-end="5226" vertical-scroll-proportion="0.5192308" vertical-offset="2775" max-vertical-offset="3600">
+            <state line="212" column="44" selection-start="5226" selection-end="5226" vertical-scroll-proportion="-15.576923" vertical-offset="2775" max-vertical-offset="3600">
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="0" selection-start="97" selection-end="97" vertical-scroll-proportion="0.20471464" vertical-offset="0" max-vertical-offset="806">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -119,7 +128,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/passenger_wsgi.py" />
@@ -127,6 +135,7 @@
         <option value="$PROJECT_DIR$/pycocat/users.txt" />
         <option value="$PROJECT_DIR$/pycocat/User.py" />
         <option value="$PROJECT_DIR$/pycocat/app.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -482,13 +491,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="87" selection-end="87" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="20" selection-start="313" selection-end="313" vertical-scroll-proportion="0.19181585" vertical-offset="0" max-vertical-offset="782">
@@ -587,10 +589,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pycocat/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="212" column="44" selection-start="5226" selection-end="5226" vertical-scroll-proportion="0.5192308" vertical-offset="2775" max-vertical-offset="3600">
+        <state line="212" column="44" selection-start="5226" selection-end="5226" vertical-scroll-proportion="-15.576923" vertical-offset="2775" max-vertical-offset="3600">
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="0" selection-start="97" selection-end="97" vertical-scroll-proportion="0.20471464" vertical-offset="0" max-vertical-offset="806">
+          <folding />
         </state>
       </provider>
     </entry>

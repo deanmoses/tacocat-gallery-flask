@@ -8,6 +8,7 @@
 *.pyc
 *.lock
 *~
+users.txt
 
 tmp/
 bin/
