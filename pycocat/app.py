@@ -19,10 +19,16 @@ def make_json_app(import_name, **kwargs):
 	"""
 
 	def make_json_error(ex):
-		response = jsonify(message=str(ex))
-		response.status_code = (ex.code
-								if isinstance(ex, HTTPException)
-								else 500)
+		if isinstance(ex, HTTPException):
+			response = jsonify(message=str(ex.name))
+			response.status_code = (ex.code)
+		else:
+			if app.debug:
+				response = jsonify(message=str(ex))
+			else:
+				response = jsonify(message='Server error')
+			response.status_code = 500
+
 		return response
 
 	app = Flask(import_name, **kwargs)
