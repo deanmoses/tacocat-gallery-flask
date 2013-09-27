@@ -1,4 +1,5 @@
 import sys, os, logging
+from logging import FileHandler, Formatter
 from flask import Flask, jsonify, request, redirect, url_for
 from flask.ext.login import LoginManager, login_required, login_user, logout_user
 from werkzeug.exceptions import default_exceptions, HTTPException
@@ -53,26 +54,78 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # restrict uploads to 16MB
 # Set up logging
 #
 if not app.debug:
-	import logging
-	from logging import FileHandler
-
 	file_handler = FileHandler('app.log')
 	file_handler.setLevel(logging.INFO)
+	file_handler.setFormatter(Formatter(
+		'%(asctime)s: %(message)s '
+		'[in %(pathname)s:%(lineno)d]'
+	))
 	app.logger.addHandler(file_handler)
+
+#
+# create a JSON 200 response
+#
+def msg(message):
+	return jsonify(message=message)
+
+#
+# create a JSON response
+#
+def err(status_code, message):
+	response = jsonify(message=message)
+	response.status_code = status_code
+	return response
+
+#
+# handle a set password request
+#
+@app.route("/register", methods=['GET', 'POST'])
+def register_user():
+	username = request.args.get('username')
+	password = request.args.get('password')
+	if not username: return err(400, 'Missing username')
+	if not password: return err(400, 'Missing password')
+
+	try:
+		User.create(username, password)
+	except ValueError:
+		response = jsonify(message='Invalid user info')
+		response.status_code = 400
+		return response
+
+	return jsonify(message='Created user')
+
 
 #
 # handle login request
 #
 @app.route("/login", methods=['GET', 'POST'])
 def login():
-	# TODO: login and validate the user...
+	username = request.args.get('username')
+	password = request.args.get('password')
+
+	if not username: return err(400, 'Missing username')
+	if not password: return err(400, 'Missing password')
 
 	# for now fake a user
-	user = User()
-	user.username = 'moses'
+	user = User.get(username, password)
 
-	# I believe this sets up the cookies in the response
-	login_user(user)
+	if not user:
+		response = jsonify(message='Invalid username/password combination')
+		response.status_code = 401
+		return response
+
+
+	# If we're on tacocat (as opposed to a local
+	# dev box), set the cookies so that they can
+	# cross domains:  meaning, a page served from
+	# tacocat.com can send it back to flask.tacocat.com
+	if 'tacocat.com' in request.environ['SERVER_NAME']:
+		app.config['REMEMBER_COOKIE_DOMAIN'] = '.tacocat.com'
+
+	# Sets up the session cookies in the response
+	# remember=True sets a long term cookie
+	login_user(user, remember=True)
 
 	# Let client know everything's cool
 	return jsonify(message='Successful login')
@@ -154,11 +207,17 @@ def fake_err():
 login_manager = LoginManager()
 
 #
-# register callback to look up the user object
+# Register callback to look up the user object.
+# This is only called if the user is already
+# authenticated, and we just need to retrieve
+# the full User object back for the request.
 #
 @login_manager.user_loader
 def load_user(username):
-	return User.get(username)
+	if username:
+		return User(username)
+	else:
+		return None
 
 # needed by authentication system
 # just a random string
