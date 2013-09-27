@@ -1,5 +1,5 @@
 # The job of this script is to import and create a Python variable named 'application'
-# that is aavailable to the Passenger WSGI container
+# that is available to the Passenger WSGI container
 
 import sys, os
 
@@ -24,19 +24,3 @@ from pycocat.app import app as application
 #	application.debug = True
 from werkzeug.debug import DebuggedApplication
 application.wsgi_app= DebuggedApplication(application.wsgi_app, evalex=True)
-
-# Set up authentication system
-from flask.ext.login import LoginManager
-login_manager = LoginManager()
-
-@login_manager.user_loader
-def load_user(userid):
-    return None
-
-try:
-	login_manager.init_app(application)
-except Exception as e:
-	logFile = os.path.join(os.environ['HOME'], 'flask_env', 'a.log')
-	with open(logFile, 'a') as log:
-		log.write("error: %s" % (e))
-	pass
