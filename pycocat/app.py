@@ -143,7 +143,7 @@ def upload():
 	app.logger.debug('doUpload()')
 	file = request.files['file']
 
-	# make sure file was sent
+	# make sure a file was sent
 	if not file:
 		return jsonify(400, 'No file')
 

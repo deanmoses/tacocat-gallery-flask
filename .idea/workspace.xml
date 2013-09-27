@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ef00a4c9-80d5-49b0-b77a-ddc159d640ee" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pycocat/User.py" afterPath="$PROJECT_DIR$/pycocat/User.py" />
+    <list default="true" id="ef00a4c9-80d5-49b0-b77a-ddc159d640ee" name="Default" comment="Upped">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pycocat/app.py" afterPath="$PROJECT_DIR$/pycocat/app.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/tacocat-gallery-flask.iml" afterPath="$PROJECT_DIR$/.idea/tacocat-gallery-flask.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="tacocat-gallery-flask.iws" />
@@ -44,10 +39,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="app.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pycocat/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="53" selection-start="1371" selection-end="1371" vertical-scroll-proportion="0.33236575" vertical-offset="326" max-vertical-offset="3450">
+            <state line="145" column="25" selection-start="3782" selection-end="3782" vertical-scroll-proportion="-5.4117646" vertical-offset="1901" max-vertical-offset="3450">
+              <folding>
+                <marker date="1380316590070" expanded="true" signature="1401:1486" placeholder="..." />
+                <marker date="1380316590070" expanded="true" signature="1797:1830" placeholder="..." />
+                <marker date="1380316590070" expanded="true" signature="1891:1981" placeholder="..." />
+                <marker date="1380316590070" expanded="true" signature="2088:2477" placeholder="..." />
+                <marker date="1380316590070" expanded="true" signature="2565:3456" placeholder="..." />
+                <marker date="1380316590070" expanded="true" signature="3546:3606" placeholder="..." />
+                <marker date="1380316590070" expanded="true" signature="3696:4247" placeholder="..." />
+                <marker date="1380316590070" expanded="true" signature="4360:4787" placeholder="..." />
+                <marker date="1380316590070" expanded="true" signature="4890:4967" placeholder="..." />
+                <marker date="1380316590070" expanded="true" signature="5277:5336" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="7" selection-start="738" selection-end="738" vertical-scroll-proportion="0.53648067" vertical-offset="0" max-vertical-offset="699">
               <folding />
             </state>
           </provider>
@@ -79,17 +94,17 @@
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/passenger_wsgi.py" />
-        <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/pycocat/users.txt" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/pycocat/User.py" />
         <option value="$PROJECT_DIR$/pycocat/app.py" />
+        <option value="$PROJECT_DIR$/public/index.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="292" />
-    <option name="y" value="63" />
+    <option name="x" value="2100" />
+    <option name="y" value="52" />
     <option name="width" value="1501" />
     <option name="height" value="1220" />
   </component>
@@ -168,6 +183,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="pycocat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tacocat-gallery-flask" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tacocat-gallery-flask" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -407,19 +436,32 @@
       <created>1380249383013</created>
       <updated>1380249383014</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Removed python 2.7 set syntax, moved back to set([...])">
+      <created>1380302572415</created>
+      <updated>1380302572415</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Remove hard coded domain for photo upload.">
+      <created>1380303442039</created>
+      <updated>1380303442039</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Upped max file size to 9MB">
+      <created>1380306468509</created>
+      <updated>1380306468509</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="292" y="63" width="1501" height="1220" extended-state="0" />
+    <frame x="2100" y="52" width="1501" height="1220" extended-state="0" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23317789" sideWeight="0.6702317" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23317789" sideWeight="0.6702317" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25846702" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25951558" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -429,7 +471,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32958478" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -443,7 +484,10 @@
       <TodoPanelSettings />
     </option>
     <MESSAGE value="Tested install from requirements.txt and it worked.  Got rid of setup.py.  Login module works." />
-    <option name="LAST_COMMIT_MESSAGE" value="Tested install from requirements.txt and it worked.  Got rid of setup.py.  Login module works." />
+    <MESSAGE value="Removed python 2.7 set syntax, moved back to set([...])" />
+    <MESSAGE value="Remove hard coded domain for photo upload." />
+    <MESSAGE value="Upped max file size to 9MB" />
+    <option name="LAST_COMMIT_MESSAGE" value="Upped max file size to 9MB" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -461,7 +505,18 @@
     <entry file="file://$PROJECT_DIR$/pycocat/app.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="212" column="44" selection-start="5226" selection-end="5226" vertical-scroll-proportion="0.0" vertical-offset="2775" max-vertical-offset="3600">
-          <folding />
+          <folding>
+            <marker date="1380316590070" expanded="true" signature="1401:1486" placeholder="..." />
+            <marker date="1380316590070" expanded="true" signature="1797:1830" placeholder="..." />
+            <marker date="1380316590070" expanded="true" signature="1891:1981" placeholder="..." />
+            <marker date="1380316590070" expanded="true" signature="2088:2477" placeholder="..." />
+            <marker date="1380316590070" expanded="true" signature="2565:3456" placeholder="..." />
+            <marker date="1380316590070" expanded="true" signature="3546:3606" placeholder="..." />
+            <marker date="1380316590070" expanded="true" signature="3696:4247" placeholder="..." />
+            <marker date="1380316590070" expanded="true" signature="4360:4787" placeholder="..." />
+            <marker date="1380316590070" expanded="true" signature="4890:4967" placeholder="..." />
+            <marker date="1380316590070" expanded="true" signature="5277:5336" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -484,11 +539,6 @@
         <state line="6" column="9" selection-start="246" selection-end="308" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="480">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="20" selection-start="313" selection-end="313" vertical-scroll-proportion="0.19181585" vertical-offset="0" max-vertical-offset="782" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pycocat/__init__.py">
@@ -551,7 +601,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pycocat/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="53" selection-start="1371" selection-end="1371" vertical-scroll-proportion="0.33236575" vertical-offset="326" max-vertical-offset="3450">
+        <state line="145" column="25" selection-start="3782" selection-end="3782" vertical-scroll-proportion="-5.4117646" vertical-offset="1901" max-vertical-offset="3450">
+          <folding>
+            <marker date="1380316590070" expanded="true" signature="1401:1486" placeholder="..." />
+            <marker date="1380316590070" expanded="true" signature="1797:1830" placeholder="..." />
+            <marker date="1380316590070" expanded="true" signature="1891:1981" placeholder="..." />
+            <marker date="1380316590070" expanded="true" signature="2088:2477" placeholder="..." />
+            <marker date="1380316590070" expanded="true" signature="2565:3456" placeholder="..." />
+            <marker date="1380316590070" expanded="true" signature="3546:3606" placeholder="..." />
+            <marker date="1380316590070" expanded="true" signature="3696:4247" placeholder="..." />
+            <marker date="1380316590070" expanded="true" signature="4360:4787" placeholder="..." />
+            <marker date="1380316590070" expanded="true" signature="4890:4967" placeholder="..." />
+            <marker date="1380316590070" expanded="true" signature="5277:5336" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="7" selection-start="738" selection-end="738" vertical-scroll-proportion="0.53648067" vertical-offset="0" max-vertical-offset="699">
           <folding />
         </state>
       </provider>

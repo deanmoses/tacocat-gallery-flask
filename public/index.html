@@ -7,14 +7,15 @@
 </head>
 <div id="tacozone" class="dropzone"></div>
 <script>
-
     Dropzone.options.tacozone = {
         url: "/upload",
         paramName: "file", // The name that will be used to transfer the file
-        maxFilesize: 9, // MB
+        maxFilesize: 15, // MB
+        acceptedFiles: ".jpg,.jpeg,.png",
         accept: function (file, done) {
-            if (file.name == "justinbieber.jpg") {
-                done("Naha, you don't.");
+            var err = validateFilename(file.name);
+            if (err) {
+                done(err);
             }
             else {
                 done();
@@ -22,5 +23,15 @@
         }
     };
 
+    /**
+     * If filename isn't valid for upload,
+     * return message saying why.
+     */
+    function validateFilename(filename) {
+        if (!/^[a-zA-Z0-9_\-\.]+$/.test(filename)) {
+            return "Filename can only contain numbers, letters, and (_-.)"
+        }
+        return undefined;
+    }
 </script>
 </html>
