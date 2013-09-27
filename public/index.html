@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+    <script src="dropzone/dropzone.js"></script>
+    <link rel="stylesheet" type="text/css" href="dropzone/css/basic.css"/>
+    <link rel="stylesheet" type="text/css" href="dropzone/css/dropzone.css"/>
+</head>
+<div id="tacozone" class="dropzone"></div>
+<script>
+
+    Dropzone.options.tacozone = {
+        url: "http://127.0.0.1:5000/upload",
+        paramName: "file", // The name that will be used to transfer the file
+        maxFilesize: 6, // MB
+        accept: function (file, done) {
+            if (file.name == "justinbieber.jpg") {
+                done("Naha, you don't.");
+            }
+            else {
+                done();
+            }
+        }
+    };
+
+</script>
+</html>

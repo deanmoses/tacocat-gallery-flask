@@ -1,17 +1,11 @@
 import sys, os, logging
-from flask import Flask
-from flask import request
-from flask import jsonify
-
-from flask.ext.login import login_required
-
-from werkzeug.exceptions import default_exceptions
-from werkzeug.exceptions import HTTPException
-
-
+from flask import Flask, jsonify, request, redirect, url_for
+from flask.ext.login import LoginManager, login_required
+from werkzeug.exceptions import default_exceptions, HTTPException
+from werkzeug.utils import secure_filename
+from pycocat import User
 
 __all__ = ['make_json_app']
-
 
 def make_json_app(import_name, **kwargs):
 	"""
@@ -48,6 +42,18 @@ def make_json_app(import_name, **kwargs):
 app = make_json_app(__name__)
 
 #
+# Set up photo uploads
+#
+
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+def allowed_file(filename):
+	return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+UPLOAD_FOLDER = os.getcwd()
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # restrict uploads to 16MB
+
+#
 # Set up logging
 #
 if not app.debug:
@@ -65,8 +71,36 @@ def not_found(error=None):
 	resp.status_code = 404
 	return resp
 
+#
+# photo upload
+#
+@app.route("/upload", methods=['POST'])
+def doUpload():
+	app.logger.debug('doUpload()')
+	file = request.files['file']
 
-@app.route("/<path:path>", methods=['GET', 'POST', 'PUT', 'PATCH'])
+	# make sure file was sent
+	if not file:
+		return jsonify(400, 'No file')
+
+	# make sure it's a jpg or png
+	if not allowed_file(file.filename):
+		return jsonify(400, 'filename not allowed: [%s]' % file.filename)
+
+	# ensure filename won't cause security issues
+	filename = secure_filename(file.filename)
+
+	# save file
+	# TODO: get path to album
+	file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+
+	# tell client it's all cool
+	return jsonify(message='Uploaded: ' + filename)
+
+#
+# authentication
+#
+@app.route("/login", methods=['GET', 'POST', 'PUT', 'PATCH'])
 @login_required
 def doMain(path):
 		app.logger.debug('doMain()')
@@ -90,31 +124,25 @@ def doMain(path):
 		return "END"
 
 
-
+#
 # Set up authentication system
-from flask.ext.login import LoginManager
+#
 
 login_manager = LoginManager()
 
-
+#
+# register callback to look up the user object
+#
 @login_manager.user_loader
-def load_user(userid):
-	return None
+def load_user(username):
+	return User.get(username)
 
 # needed by authentication system
 # just a random string
 app.secret_key = 'y FN- 0823hf2j fc 028  -)* n3!&aMR'
 
 login_manager.init_app(app)
-'''
-try:
-	login_manager.init_app(application)
-except Exception as e:
-	logFile = os.path.join(os.environ['HOME'], 'flask_env', 'a.log')
-	with open(logFile, 'a') as log:
-		log.write("error: %s" % (e))
-	pass
-'''
+
 # If this script is run directly (e.g. from the command line) 
 # instead of being imported into some other script, run it.
 # This allows the script to be run in debug mode from the command line.
