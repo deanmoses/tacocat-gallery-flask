@@ -12,7 +12,7 @@ class User(UserMixin):
 
 	@staticmethod
 	def _assert_valid_username(username):
-		if username not in {'lucie', 'moses'}: raise ValueError('name is not among allowed set')
+		if username not in ['lucie', 'moses']: raise ValueError('name is not among allowed set')
 
 	@staticmethod
 	def _assert_valid_password(password):
