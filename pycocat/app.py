@@ -5,17 +5,13 @@ from werkzeug.exceptions import default_exceptions, HTTPException
 from werkzeug.utils import secure_filename
 from pycocat.User import User
 
-__all__ = ['make_json_app']
 
-def make_json_app(import_name, **kwargs):
+def register_json_error_handlers(app):
 	"""
-	Creates a JSON-oriented Flask app.
-
 	All error responses that you don't specifically
 	manage yourself will have application/json content
-	type, and will contain JSON like this (just an example):
-
-	{ "message": "405: Method Not Allowed" }
+	type, and will contain JSON like this:
+	{ "message": "Not Found" }
 	"""
 
 	def make_json_error(ex):
@@ -28,32 +24,26 @@ def make_json_app(import_name, **kwargs):
 			else:
 				response = jsonify(message='Server error')
 			response.status_code = 500
-
 		return response
 
-	app = Flask(import_name, **kwargs)
-	doJsonErrors = True
-	if doJsonErrors:
-		for code in default_exceptions.iterkeys():
-			app.error_handler_spec[None][code] = make_json_error
+	for code in default_exceptions.iterkeys():
+		app.error_handler_spec[None][code] = make_json_error
 
-	return app
-
-#
 # The root of my Flask app.
 # The 'app' function is what's imported by the cgi
 # script, passenger_wsgi.py
-#
-#app = Flask(__name__)
-app = make_json_app(__name__)
+app = Flask(__name__)
+register_json_error_handlers(app)
 
 #
 # Set up photo uploads
 #
-
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+
+
 def allowed_file(filename):
 	return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
 
 UPLOAD_FOLDER = os.getcwd()
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -75,26 +65,26 @@ if not app.debug:
 #
 @app.route("/login", methods=['GET', 'POST'])
 def login():
+	# TODO: login and validate the user...
 
-		# TODO: login and validate the user...
+	# for now fake a user
+	user = User()
+	user.username = 'moses'
 
-		# for now fake a user
-		user = User()
-		user.username = 'moses'
+	# I believe this sets up the cookies in the response
+	login_user(user)
 
-		# I believe this sets up the cookies in the response
-		login_user(user)
-
-		# Let client know everything's cool
-		return jsonify(message='Successful login')
+	# Let client know everything's cool
+	return jsonify(message='Successful login')
 
 #
 # handle logout request
 #
 @app.route("/logout", methods=['GET', 'POST'])
 def logout():
-    logout_user()
-    return jsonify(message="Successful logout")
+	logout_user()
+	return jsonify(message="Successful logout")
+
 #
 # photo upload
 #
@@ -128,25 +118,33 @@ def upload():
 @app.route("/", methods=['GET', 'POST', 'PUT', 'PATCH'])
 @login_required
 def index():
-		app.logger.debug('index()')
+	app.logger.debug('index()')
 
-		#return "path: %s" %  path
+	#return "path: %s" %  path
 
-		#if request.method != 'PUT':
-		#	return jsonify(error = '%s requests are not supported' % request.method)
+	#if request.method != 'PUT':
+	#	return jsonify(error = '%s requests are not supported' % request.method)
 
-		if request.data:
-			parsedJson = request.get_json(force=True)
+	if request.data:
+		parsedJson = request.get_json(force=True)
 
-			if len(parsedJson) > 0:
-				app.logger.error('parsed JSON: [%s]', str(parsedJson))
+		if len(parsedJson) > 0:
+			app.logger.error('parsed JSON: [%s]', str(parsedJson))
 
-				#import admin.photo as photo
-				#photo.save(path, parsedJson)
+			#import admin.photo as photo
+			#photo.save(path, parsedJson)
 
-				return jsonify(success=True)
+			return jsonify(success=True)
 
-		return "END"
+	return "END"
+
+#
+# error handling test
+#
+@app.route("/err", methods=['GET', 'POST', 'PUT', 'PATCH'])
+def fake_err():
+	app.logger.debug('fake_err()')
+	raise Exception('This is a fake exception')
 
 
 #
