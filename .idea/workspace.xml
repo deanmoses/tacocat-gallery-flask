@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef00a4c9-80d5-49b0-b77a-ddc159d640ee" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pycocat/test/TestImageUtils.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pycocat/test/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pycocat/imageUtils.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pycocat/test/TestImageUtils.py" afterPath="$PROJECT_DIR$/pycocat/test/TestImageUtils.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pycocat/imageUtils.py" afterPath="$PROJECT_DIR$/pycocat/imageUtils.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/tacocat-gallery-flask.iml" afterPath="$PROJECT_DIR$/.idea/tacocat-gallery-flask.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="tacocat-gallery-flask.iws" />
@@ -19,11 +19,12 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/tacocat-gallery-flask$Unittest_TestImageUtils_test_get_dimensions.coverage" NAME="Unittest TestImageUtils.test_get_dimensions Coverage Results" MODIFIED="1380326098612" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pycocat/test" />
-    <SUITE FILE_PATH="coverage/tacocat-gallery-flask$Unittests_in_TestImageUtils.coverage" NAME="Unittests in TestImageUtils Coverage Results" MODIFIED="1380327660547" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pycocat/test" />
-    <SUITE FILE_PATH="coverage/tacocat-gallery-flask$Flask_App.coverage" NAME="Flask App Coverage Results" MODIFIED="1380302474138" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pycocat" />
-    <SUITE FILE_PATH="coverage/tacocat-gallery-flask$Unittest_TestImageUtils_test_get_dimensions_using_shell.coverage" NAME="Unittest TestImageUtils.test_get_dimensions_using_shell Coverage Results" MODIFIED="1380327162223" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pycocat/test" />
+    <SUITE FILE_PATH="coverage/tacocat-gallery-flask$Unittest_TestImageUtils_test_get_dimensions_using_shell.coverage" NAME="Unittest TestImageUtils.test_get_dimensions_using_shell Coverage Results" MODIFIED="1380343436893" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pycocat/test" />
+    <SUITE FILE_PATH="coverage/tacocat-gallery-flask$Unittests_in_TestImageUtils.coverage" NAME="Unittests in TestImageUtils Coverage Results" MODIFIED="1380345163400" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pycocat/test" />
+    <SUITE FILE_PATH="coverage/tacocat-gallery-flask$imageUtils.coverage" NAME="imageUtils Coverage Results" MODIFIED="1380336467809" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pycocat" />
     <SUITE FILE_PATH="coverage/tacocat-gallery-flask$TestImageUtils.coverage" NAME="TestImageUtils Coverage Results" MODIFIED="1380324848120" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pycocat/test" />
+    <SUITE FILE_PATH="coverage/tacocat-gallery-flask$Flask_App.coverage" NAME="Flask App Coverage Results" MODIFIED="1380302474138" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pycocat" />
+    <SUITE FILE_PATH="coverage/tacocat-gallery-flask$Unittest_TestImageUtils_test_get_dimensions.coverage" NAME="Unittest TestImageUtils.test_get_dimensions Coverage Results" MODIFIED="1380340819517" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pycocat/test" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -37,31 +38,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="User.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pycocat/User.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="0" selection-start="394" selection-end="394" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1320">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pycocat/app.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="219" column="0" selection-start="5395" selection-end="5409" vertical-scroll-proportion="0.0" vertical-offset="2357" max-vertical-offset="3450">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="imageUtils.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pycocat/imageUtils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="41" selection-start="226" selection-end="226" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
-              <folding>
-                <element signature="e#53#90#0" expanded="true" />
-              </folding>
+            <state line="3" column="0" selection-start="52" selection-end="52" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -69,7 +50,7 @@
       <file leaf-file-name="TestImageUtils.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pycocat/test/TestImageUtils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="0" selection-start="185" selection-end="185" vertical-scroll-proportion="0.10452962" vertical-offset="45" max-vertical-offset="690">
+            <state line="23" column="29" selection-start="818" selection-end="818" vertical-scroll-proportion="0.375" vertical-offset="102" max-vertical-offset="780">
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -77,10 +58,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/index.html">
+      <file leaf-file-name="subprocess.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file:///usr/local/Cellar/python/2.7.5/Frameworks/Python.framework/Versions/2.7/lib/python2.7/subprocess.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="7" selection-start="738" selection-end="738" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="630">
+            <state line="545" column="4" selection-start="17321" selection-end="17321" vertical-scroll-proportion="0.0" vertical-offset="8034" max-vertical-offset="24120">
               <folding />
             </state>
           </provider>
@@ -118,16 +99,16 @@
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/pycocat/ImageService.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/pycocat/imageUtils.py" />
         <option value="$PROJECT_DIR$/pycocat/test/TestImageUtils.py" />
+        <option value="$PROJECT_DIR$/pycocat/imageUtils.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="203" />
-    <option name="y" value="107" />
-    <option name="width" value="1409" />
-    <option name="height" value="1116" />
+    <option name="x" value="501" />
+    <option name="y" value="115" />
+    <option name="width" value="1801" />
+    <option name="height" value="1234" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -247,12 +228,23 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="Errors" />
+    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pycocat/app.py" />
     <property name="FullScreen" value="false" />
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+  </component>
+  <component name="PublishConfig">
+    <servers>
+      <server id="3e5d0c61-685f-4bcc-9970-5f8a3a300525">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </server>
+    </servers>
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -302,7 +294,9 @@
       <option name="PUREUNITTEST" value="true" />
       <option name="PARAMS" value="" />
       <option name="USE_PARAM" value="false" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
@@ -327,8 +321,10 @@
       <option name="PUREUNITTEST" value="true" />
       <option name="PARAMS" value="" />
       <option name="USE_PARAM" value="false" />
+      <RunnerSettings RunnerId="Basic" />
       <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="Basic" />
       <ConfigurationWrapper RunnerId="PyDebugRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
@@ -354,6 +350,29 @@
       <option name="PUREUNITTEST" value="true" />
       <option name="PARAMS" value="" />
       <option name="USE_PARAM" value="false" />
+      <RunnerSettings RunnerId="Basic" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="Basic" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="imageUtils" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pycocat" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="tacocat-gallery-flask" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pycocat/imageUtils.py" />
+      <option name="PARAMETERS" value="" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
@@ -542,19 +561,21 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
-    <list size="5">
+    <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Python.Flask App" />
       <item index="1" class="java.lang.String" itemvalue="Python.TestImageUtils" />
       <item index="2" class="java.lang.String" itemvalue="Python tests.Unittest TestImageUtils.test_get_dimensions" />
       <item index="3" class="java.lang.String" itemvalue="Python tests.Unittest TestImageUtils.test_get_dimensions_using_shell" />
       <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in TestImageUtils" />
+      <item index="5" class="java.lang.String" itemvalue="Python.imageUtils" />
     </list>
     <recent_temporary>
-      <list size="4">
+      <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in TestImageUtils" />
         <item index="1" class="java.lang.String" itemvalue="Python tests.Unittest TestImageUtils.test_get_dimensions_using_shell" />
         <item index="2" class="java.lang.String" itemvalue="Python tests.Unittest TestImageUtils.test_get_dimensions" />
-        <item index="3" class="java.lang.String" itemvalue="Python.TestImageUtils" />
+        <item index="3" class="java.lang.String" itemvalue="Python.imageUtils" />
+        <item index="4" class="java.lang.String" itemvalue="Python.TestImageUtils" />
       </list>
     </recent_temporary>
   </component>
@@ -606,7 +627,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="203" y="107" width="1409" height="1116" extended-state="0" />
+    <frame x="501" y="115" width="1801" height="1234" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -614,11 +635,11 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2575423" sideWeight="0.60603017" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39396986" sideWeight="0.35835174" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26951566" sideWeight="0.60682225" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39317775" sideWeight="0.51452994" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25929648" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39396986" sideWeight="0.6409124" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2589991" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39317775" sideWeight="0.4854701" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -653,20 +674,10 @@
           <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="13" />
+      <option name="time" value="14" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/passenger_wsgi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="9" selection-start="246" selection-end="308" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="480" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pycocat/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="806" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/dropzone/css/basic.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2400" />
@@ -714,39 +725,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="7" selection-start="738" selection-end="738" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="630">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pycocat/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="219" column="0" selection-start="5395" selection-end="5409" vertical-scroll-proportion="0.0" vertical-offset="2357" max-vertical-offset="3450">
-          <folding />
-        </state>
+        <state line="219" column="0" selection-start="5395" selection-end="5409" vertical-scroll-proportion="0.0" vertical-offset="2357" max-vertical-offset="3450" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="7" selection-start="738" selection-end="738" vertical-scroll-proportion="0.3462604" vertical-offset="0" max-vertical-offset="1083" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="14" selection-start="125" selection-end="125" vertical-scroll-proportion="0.09606587" vertical-offset="0" max-vertical-offset="1093">
+        <state line="7" column="14" selection-start="125" selection-end="125" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python2.7/site-packages/wand/api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="159" column="0" selection-start="5722" selection-end="5722" vertical-scroll-proportion="0.33333334" vertical-offset="2079" max-vertical-offset="11460">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/Cellar/python/2.7.5/Frameworks/Python.framework/Versions/2.7/lib/python2.7/subprocess.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="545" column="4" selection-start="17321" selection-end="17321" vertical-scroll-proportion="0.0" vertical-offset="8034" max-vertical-offset="24120">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pycocat/imageUtils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="41" selection-start="226" selection-end="226" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
-          <folding>
-            <element signature="e#53#90#0" expanded="true" />
-          </folding>
+        <state line="3" column="0" selection-start="52" selection-end="52" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pycocat/test/TestImageUtils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="185" selection-end="185" vertical-scroll-proportion="0.10452962" vertical-offset="45" max-vertical-offset="690">
+        <state line="23" column="29" selection-start="818" selection-end="818" vertical-scroll-proportion="0.375" vertical-offset="102" max-vertical-offset="780">
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>

@@ -1,8 +1,6 @@
 #
 # Utilities for reading and manipulating images
 #
-
-from __future__ import print_function
 from wand.image import Image
 
 def get_dimensions(filename):
