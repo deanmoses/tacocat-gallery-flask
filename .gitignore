@@ -7,12 +7,17 @@
 *.pyc
 *.lock
 *~
-users.txt
-secret.txt
+
+.idea/
 tmp/
 bin/
 lib/
 lib64/
 include/
 venv/
+
+users.txt
+**/users.txt
+secret.txt
+**/secret.txt
 

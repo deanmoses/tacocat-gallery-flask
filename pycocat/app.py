@@ -95,13 +95,20 @@ def register_user():
 #
 # handle login request
 #
-@app.route("/login", methods=['GET', 'POST'])
+@app.route('/login', methods=['POST'])
 def login():
-	username = request.args.get('username')
-	password = request.args.get('password')
+	username = None
+	password = None
 
-	if not username: return err(400, 'Missing username')
-	if not password: return err(400, 'Missing password')
+	try:
+		username = request.form['username']
+	except KeyError:
+		return err(400, 'Missing username')
+
+	try:
+		password = request.form['password']
+	except KeyError:
+		return err(400, 'Missing password')
 
 	# for now fake a user
 	user = User.get(username, password)
@@ -123,21 +130,30 @@ def login():
 	# remember=True sets a long term cookie
 	login_user(user, remember=True)
 
-	# Let client know everything's cool
-	return jsonify(message='Successful login')
+	# Give client their authentication status
+	return jsonify(isAuthenticated=True, isSiteAdmin=True)
 
 #
 # handle logout request
 #
-@app.route("/logout", methods=['GET', 'POST'])
+@app.route('/logout', methods=['POST'])
 def logout():
 	logout_user()
-	return jsonify(message="Successful logout")
+	return jsonify(isAuthenticated=False, isSiteAdmin=False)
+
+#
+# client is wanting to know whether it's authenticated or not
+#
+@app.route('/auth_status', methods=['POST'])
+@login_required
+def auth_status():
+	# if they aren't authenticated, they get a 401 and don't reach here
+	return jsonify(isAuthenticated=True, isSiteAdmin=True)
 
 #
 # photo upload
 #
-@app.route("/upload", methods=['POST'])
+@app.route('/upload', methods=['POST'])
 @login_required
 def upload():
 	app.logger.debug('doUpload()')
@@ -164,7 +180,7 @@ def upload():
 #
 # authentication test
 #
-@app.route("/", methods=['GET', 'POST', 'PUT', 'PATCH'])
+@app.route('/', methods=['GET', 'POST', 'PUT', 'PATCH'])
 @login_required
 def index():
 	app.logger.debug('index()')
