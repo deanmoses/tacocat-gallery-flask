@@ -11,7 +11,7 @@
         url: "/upload",
         paramName: "file", // The name that will be used to transfer the file
         maxFilesize: 15, // MB
-        acceptedFiles: ".jpg,.jpeg,.png",
+        acceptedFiles: ".jpg,.JPG,.jpeg,.JPEG,.png,.PNG", // there's a pending commit to dropzone to make it case-insensitive
         accept: function (file, done) {
             var err = validateFilename(file.name);
             if (err) {
