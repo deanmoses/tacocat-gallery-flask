@@ -144,7 +144,7 @@ def logout():
 #
 # client is wanting to know whether it's authenticated or not
 #
-@app.route('/auth_status', methods=['POST'])
+@app.route('/auth_status', methods=['GET'])
 @login_required
 def auth_status():
 	# if they aren't authenticated, they get a 401 and don't reach here
