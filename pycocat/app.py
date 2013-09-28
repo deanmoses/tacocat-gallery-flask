@@ -216,8 +216,8 @@ def load_user(username):
 		return None
 
 # needed by authentication system
-# just a random string
-app.secret_key = 'y FN- 0823hf2j fc 028  -)* n3!&aMR'
+with open(os.path.join(os.getcwd(), 'secret.txt'), 'r') as f:
+	app.secret_key = f.read()
 
 login_manager.init_app(app)
 
