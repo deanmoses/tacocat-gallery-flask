@@ -2,10 +2,25 @@ import sys, os, logging
 from logging import FileHandler, Formatter
 from flask import Flask, jsonify, request, redirect, url_for
 from flask.ext.login import LoginManager, login_required, login_user, logout_user
-from werkzeug.exceptions import default_exceptions, HTTPException
+from werkzeug.exceptions import default_exceptions, HTTPException, Unauthorized, BadRequest
 from werkzeug.utils import secure_filename
 from pycocat.User import User
+import pycocat.album_utils as album_utils
 
+
+#
+# create a JSON 200 response
+#
+def msg(message):
+	return jsonify(message=message)
+
+#
+# create a JSON error response
+#
+def err(code, message):
+	response = jsonify(message=message)
+	response.status_code = code
+	return response
 
 def register_json_error_handlers(app):
 	"""
@@ -17,15 +32,13 @@ def register_json_error_handlers(app):
 
 	def make_json_error(ex):
 		if isinstance(ex, HTTPException):
-			response = jsonify(message=str(ex.name))
-			response.status_code = (ex.code)
+			return err(ex.code, str(ex.name))
+		elif isinstance(ex, NotImplementedError):
+			return err(501, 'Not yet implemented')
+		elif app.debug:
+			return err(500, str(ex))
 		else:
-			if app.debug:
-				response = jsonify(message=str(ex))
-			else:
-				response = jsonify(message='Server error')
-			response.status_code = 500
-		return response
+			return err(500, 'Server error')
 
 	for code in default_exceptions.iterkeys():
 		app.error_handler_spec[None][code] = make_json_error
@@ -59,37 +72,21 @@ if not app.debug:
 	app.logger.addHandler(file_handler)
 
 #
-# create a JSON 200 response
-#
-def msg(message):
-	return jsonify(message=message)
-
-#
-# create a JSON response
-#
-def err(status_code, message):
-	response = jsonify(message=message)
-	response.status_code = status_code
-	return response
-
-#
 # handle a set password request
 #
 @app.route("/register", methods=['GET', 'POST'])
 def register_user():
 	username = request.args.get('username')
 	password = request.args.get('password')
-	if not username: return err(400, 'Missing username')
-	if not password: return err(400, 'Missing password')
+	if not username: raise BadRequest(description='Missing username')
+	if not password: raise BadRequest(description='Missing password')
 
 	try:
 		User.create(username, password)
 	except ValueError:
-		response = jsonify(message='Invalid user info')
-		response.status_code = 400
-		return response
+		raise BadRequest(description='Invalid user info')
 
-	return jsonify(message='Created user')
+	return msg('Created user')
 
 
 #
@@ -103,21 +100,18 @@ def login():
 	try:
 		username = request.form['username']
 	except KeyError:
-		return err(400, 'Missing username')
+		raise BadRequest(description='Missing username')
 
 	try:
 		password = request.form['password']
 	except KeyError:
-		return err(400, 'Missing password')
+		raise BadRequest(description='Missing password')
 
 	# for now fake a user
 	user = User.get(username, password)
 
 	if not user:
-		response = jsonify(message='Invalid username/password combination')
-		response.status_code = 401
-		return response
-
+		raise Unauthorized(description='Invalid username/password combination')
 
 	# If we're on tacocat (as opposed to a local
 	# dev box), set the cookies so that they can
@@ -161,11 +155,11 @@ def upload():
 
 	# make sure a file was sent
 	if not file:
-		return jsonify(400, 'No file')
+		raise BadRequest(description='No file')
 
 	# make sure it's a jpg or png
 	if not allowed_file(file.filename):
-		return jsonify(400, 'filename not allowed: [%s]' % file.filename)
+		raise BadRequest(description='filename not allowed: [%s]' % file.filename)
 
 	# ensure filename won't cause security issues
 	filename = secure_filename(file.filename)
@@ -175,15 +169,37 @@ def upload():
 	file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
 	# tell client it's all cool
-	return jsonify(message='Uploaded: ' + filename)
+	return msg('Uploaded: ' + filename)
 
 #
-# authentication test
+# Album web service:
+# POST:  create album
+# PATCH: update just some properties of the album
+# PUT: replace the entire album
+# GET: not supported, we retrieve albums via the filesystem .json
 #
-@app.route('/', methods=['GET', 'POST', 'PUT', 'PATCH'])
+@app.route('/album/<path:album_path>', methods=['POST'])
 @login_required
-def index():
-	app.logger.debug('index()')
+def album(album_path):
+	app.logger.debug('/album/' + album_path)
+
+	title = request.args.get('title')
+	summary = request.args.get('summary')
+
+	# create album on disk
+	# album will validate path, title, summary
+	# and whether it already exists
+	album_utils.create_album(album_path, title, summary)
+
+
+
+#
+# test route for whenever I need to try out something
+#
+@app.route('/test', methods=['GET', 'POST', 'PUT', 'PATCH'])
+@login_required
+def test():
+	app.logger.debug('/test')
 
 	#return "path: %s" %  path
 
@@ -206,7 +222,7 @@ def index():
 #
 # error handling test
 #
-@app.route("/err", methods=['GET', 'POST', 'PUT', 'PATCH'])
+@app.route("/test/error", methods=['GET', 'POST', 'PUT', 'PATCH'])
 def fake_err():
 	app.logger.debug('fake_err()')
 	raise Exception('This is a fake exception')
@@ -243,4 +259,4 @@ login_manager.init_app(app)
 if __name__ == "__main__":
 	# debug=True: server will reload itself on code changes
 	# Also provides you with a helpful debugger if things go wrong
-	app.run(debug=True)
+	app.run(debug=False)
