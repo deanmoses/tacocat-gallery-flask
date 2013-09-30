@@ -1,4 +1,3 @@
-import album_utils
 from Photo import Photo
 
 import logging
@@ -6,9 +5,11 @@ logger = logging.getLogger(__name__)
 ch = logging.StreamHandler()
 logger.addHandler(ch)
 
-class Album(object):
+class CompleteAlbum(object):
 	"""
-	Represents the metadata for a photo album.
+	Represents everything needed for a complete photo album ready to be sent back as JSON to the client.
+
+	This will contain derived information that's not in the actual album, like sub album thumbnails.
 	"""
 
 	# My fields.  Does not include photos field b/c that's special

@@ -31,19 +31,11 @@ class NotFoundException(AlbumException):
 	"""
 	Raised when an Album or Photo isn't found
 	"""
-	def __init__(self, path):
-		fullMessage = 'Not found: %s' % (path)
-
-		# Call the base class constructor with the parameters it needs
-		AlbumException.__init__(self, fullMessage)
+	pass
 
 
 class FoundException(AlbumException):
 	"""
 	Raised when an Album or Photo is found and shouldn't be
 	"""
-	def __init__(self, path):
-		fullMessage = 'Found: %s' % (path)
-
-		# Call the base class constructor with the parameters it needs
-		AlbumException.__init__(self, fullMessage)
+	pass

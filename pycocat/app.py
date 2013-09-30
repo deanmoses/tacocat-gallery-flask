@@ -6,6 +6,7 @@ from flask.ext.login import LoginManager, login_required, login_user, logout_use
 from werkzeug.exceptions import default_exceptions, HTTPException, Unauthorized, BadRequest
 from werkzeug.utils import secure_filename
 from user.User import User
+from pycocat.album.album_exceptions import FoundException
 import album.album_utils as album_utils
 
 #
@@ -35,6 +36,8 @@ def register_json_error_handlers(app):
 			return err(ex.code, str(ex.name))
 		elif isinstance(ex, NotImplementedError):
 			return err(501, 'Not yet implemented')
+		elif isinstance(ex, FoundException):
+			return err(400, ex.message)
 		elif app.debug:
 			return err(500, str(ex))
 		else:
@@ -256,4 +259,4 @@ login_manager.init_app(app)
 if __name__ == "__main__":
 	# debug=True: server will reload itself on code changes
 	# Also provides you with a helpful debugger if things go wrong
-	app.run(debug=True)
+	app.run(debug=False)

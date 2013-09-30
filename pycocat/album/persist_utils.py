@@ -2,7 +2,7 @@ import os
 import json_utils, file_utils
 import pycocat.config as config
 from Album import Album
-from album_exceptions import AlbumException, FoundException, NotFoundException
+from pycocat.album.album_exceptions import AlbumException, FoundException, NotFoundException
 import album_utils
 
 import logging
@@ -33,7 +33,7 @@ def save(album_path, album, create=False):
 		try:
 			file_utils.create_file(file_path, album_string)
 		except AssertionError:
-			raise FoundException(album_path)
+			raise FoundException("Album [%s] already exists" % album_path)
 	else:
 		try:
 			file_utils.update_file(file_path, album_string)
