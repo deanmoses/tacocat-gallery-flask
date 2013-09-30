@@ -6,22 +6,32 @@ from flask.ext.login import LoginManager, login_required, login_user, logout_use
 from werkzeug.exceptions import default_exceptions, HTTPException, Unauthorized, BadRequest
 from werkzeug.utils import secure_filename
 from user.User import User
-from pycocat.album.album_exceptions import FoundException
+from pycocat.album.album_exceptions import AlbumException
 import album.album_utils as album_utils
 
-#
-# create a JSON 200 response
-#
-def msg(message):
-	return jsonify(message=message)
 
-#
-# create a JSON error response
-#
-def err(code, message):
-	response = jsonify(message=message)
-	response.status_code = code
+def msg(message):
+	"""
+	Create a success response in JSON
+	"""
+	return jsonify(success=True, message=message)
+
+
+def err(message):
+	"""
+	Create a an *application* error (that's a *200* OK HTTP response) in JSON format
+	"""
+	return jsonify(success=False, message=message)
+
+
+def http_err(code, description):
+	"""
+	Create a HTTP error response in JSON format
+	"""
+	response = jsonify(success=False, message=description)
+	response.code = code
 	return response
+
 
 def register_json_error_handlers(app):
 	"""
@@ -33,24 +43,25 @@ def register_json_error_handlers(app):
 
 	def make_json_error(ex):
 		if isinstance(ex, HTTPException):
-			return err(ex.code, str(ex.name))
-		elif isinstance(ex, NotImplementedError):
-			return err(501, 'Not yet implemented')
-		elif isinstance(ex, FoundException):
-			return err(400, ex.message)
+			return http_err(ex.code, str(ex.name))
 		elif app.debug:
-			return err(500, str(ex))
+			return http_err(500, str(ex))
 		else:
-			return err(500, 'Server error')
+			return http_err(500, 'Server error')
 
 	for code in default_exceptions.iterkeys():
 		app.error_handler_spec[None][code] = make_json_error
+
 
 # The root of my Flask app.
 # The 'app' function is what's imported by the cgi
 # script, passenger_wsgi.py
 app = Flask(__name__)
 register_json_error_handlers(app)
+
+@app.errorhandler(AlbumException)
+def handle_album_exceptions(ex):
+	return err(ex.message)
 
 #
 # Set up photo uploads
@@ -259,4 +270,4 @@ login_manager.init_app(app)
 if __name__ == "__main__":
 	# debug=True: server will reload itself on code changes
 	# Also provides you with a helpful debugger if things go wrong
-	app.run(debug=False)
+	app.run(debug=True)
