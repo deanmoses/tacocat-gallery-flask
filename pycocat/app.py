@@ -1,12 +1,12 @@
-import sys, os, logging
+import os
+import logging
 from logging import FileHandler, Formatter
-from flask import Flask, jsonify, request, redirect, url_for
+from flask import Flask, jsonify, request
 from flask.ext.login import LoginManager, login_required, login_user, logout_user
 from werkzeug.exceptions import default_exceptions, HTTPException, Unauthorized, BadRequest
 from werkzeug.utils import secure_filename
-from pycocat.User import User
-import pycocat.album_utils as album_utils
-
+from user.User import User
+import album.album_utils as album_utils
 
 #
 # create a JSON 200 response
@@ -151,22 +151,22 @@ def auth_status():
 @login_required
 def upload():
 	app.logger.debug('doUpload()')
-	file = request.files['file']
+	file_obj = request.files['file']
 
 	# make sure a file was sent
-	if not file:
+	if not file_obj:
 		raise BadRequest(description='No file')
 
 	# make sure it's a jpg or png
-	if not allowed_file(file.filename):
-		raise BadRequest(description='filename not allowed: [%s]' % file.filename)
+	if not allowed_file(file_obj.filename):
+		raise BadRequest(description='filename not allowed: [%s]' % file_obj.filename)
 
 	# ensure filename won't cause security issues
-	filename = secure_filename(file.filename)
+	filename = secure_filename(file_obj.filename)
 
 	# save file
 	# TODO: get path to album
-	file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+	file_obj.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
 	# tell client it's all cool
 	return msg('Uploaded: ' + filename)
@@ -183,14 +183,11 @@ def upload():
 def album(album_path):
 	app.logger.debug('/album/' + album_path)
 
-	title = request.args.get('title')
-	summary = request.args.get('summary')
-
-	# create album on disk
-	# album will validate path, title, summary
-	# and whether it already exists
+	# POST: create album
+	title = request.form.get('title')
+	summary = request.form.get('summary')
 	album_utils.create_album(album_path, title, summary)
-
+	return msg("Album [%s]: created" % album_path)
 
 
 #
@@ -207,10 +204,10 @@ def test():
 	#	return jsonify(error = '%s requests are not supported' % request.method)
 
 	if request.data:
-		parsedJson = request.get_json(force=True)
+		parsed_json = request.get_json(force=True)
 
-		if len(parsedJson) > 0:
-			app.logger.error('parsed JSON: [%s]', str(parsedJson))
+		if len(parsed_json) > 0:
+			app.logger.error('parsed JSON: [%s]', str(parsed_json))
 
 			#import admin.photo as photo
 			#photo.save(path, parsedJson)
@@ -259,4 +256,4 @@ login_manager.init_app(app)
 if __name__ == "__main__":
 	# debug=True: server will reload itself on code changes
 	# Also provides you with a helpful debugger if things go wrong
-	app.run(debug=False)
+	app.run(debug=True)
