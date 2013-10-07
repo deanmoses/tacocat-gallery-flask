@@ -1,43 +1,12 @@
 """
-Utilities for accessing Albums
+Utilities for managing album paths
 """
-from Album import Album
-from album_exceptions import PathValidationException
-import persist_utils
+from pycocat.album.album_exceptions import PathValidationException
 
 import logging
 logger = logging.getLogger(__name__)
 ch = logging.StreamHandler()
 logger.addHandler(ch)
-
-
-def create_album(album_path, title=None, summary=None, description=None):
-	"""
-	Create album in persistent store.
-
-	Error if album already exists.
-	"""
-	album = Album(title=title, summary=summary, description=description)
-	persist_utils.save(album_path, album, create=True)
-
-
-def get_album(album_path):
-	"""
-	Retrieve album from persistent store.
-
-	Error if album does not exist.
-	"""
-	return persist_utils.get(album_path)
-
-
-def delete_album(album_path):
-	"""
-	Delete album from disk.
-
-	Error if album does NOT exist.
-	"""
-	return persist_utils.delete(album_path)
-
 
 def parse_path(album_path):
 	"""

@@ -29,12 +29,44 @@ class PathValidationException(AlbumException):
 
 class NotFoundException(AlbumException):
 	"""
-	Raised when an Album or Photo isn't found
+	Base class for album and photo not found exceptions
+	"""
+	pass
+
+
+class AlbumNotFoundException(NotFoundException):
+	"""
+	Raised when an Album isn't found
+	"""
+	pass
+
+class PhotoNotFoundException(NotFoundException):
+	"""
+	Raised when a Photo isn't found
 	"""
 	pass
 
 class FoundException(AlbumException):
 	"""
-	Raised when an Album or Photo is found and shouldn't be
+	Base class for album and photo found exceptions
+	"""
+	pass
+
+class AlbumFoundException(FoundException):
+	"""
+	Raised when an Album is found and shouldn't
+	"""
+	pass
+
+class PhotoFoundException(FoundException):
+	"""
+	Raised when a Photo is found and shouldn't
+	"""
+	pass
+
+class HasSubAlbumsException(AlbumException):
+	"""
+	Raised when an album shouldn't have subalbums but does, like when
+	we're asked to delete it.
 	"""
 	pass

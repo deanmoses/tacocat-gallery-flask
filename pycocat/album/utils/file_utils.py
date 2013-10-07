@@ -1,8 +1,12 @@
 """
 Read and write albums from disk
 """
-import os
-from pycocat.album.album_exceptions import FoundException
+import os, shutil
+
+import logging
+logger = logging.getLogger(__name__)
+ch = logging.StreamHandler()
+logger.addHandler(ch)
 
 def create_file(album_path, album_string):
 	"""
@@ -52,6 +56,15 @@ def update_file(album_path, album_string):
 		f.write(album_string)
 
 
+def create_or_overwrite_file(album_path, album_string):
+	"""
+	Write file to disk, regardless of whether it already exists or not.
+
+	Errors if parent directories do not exist.
+	"""
+	with open(album_path, "w+") as f:
+		f.write(album_string)
+
 def read_file(album_path):
 	"""
 	Retrieve album string from path
@@ -65,10 +78,17 @@ def delete_file(album_path):
 	Error if it doesn't exist
 	"""
 	os.remove(album_path)
-	print 'deleted album from disk: %s' % album_path
+	logger.info('deleted album from disk: %s',  album_path)
 
 	# remove directory if it is empty
 	parent_dir = os.path.dirname(album_path)
 	if not os.listdir(parent_dir):
-		print 'removing empty dir: %s' % parent_dir
+		logger.info('removing empty dir: %s', parent_dir)
 		os.rmdir(parent_dir)
+
+
+def delete_dir(album_dir):
+	"""
+	Delete existing dir on disk
+	"""
+	shutil.rmtree(album_dir)

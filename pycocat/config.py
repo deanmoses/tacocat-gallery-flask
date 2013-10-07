@@ -1,19 +1,27 @@
-"""
-Configuration of both the scrape script and the album store - exposes paths and such
-"""
+import os
 
-WEB_DIR = None # root dir of tacocat webserver on disk
-ALBUM_DATA_DIR = None # root dir of album YAML files on disk
-ALBUM_WEB_DIR = None # root dir of album JSON files on disk
+class Config(object):
+	"""
+	Configuration of paths and such
+	"""
+	test = False
 
-debug = True
+	@staticmethod
+	def album_data_dir():
+		"""
+		Root dir of the album JSON files on disk
+		"""
+		if Config.test:
+			return os.path.join(os.path.dirname(os.path.realpath(__file__)), 'test', 'test_data', 'test_albums')
+		else:
+			return os.path.join(os.path.expanduser("~"), 'themosii.com', 'oldpix')
 
-if debug:
-	WEB_DIR = '/Users/dmoses/Sites/oldpix'
-	ALBUM_DATA_DIR = WEB_DIR
-	ALBUM_WEB_DIR = ALBUM_DATA_DIR
-
-else:
-	WEB_DIR = '/home/deanmoses/themosii.com'
-	ALBUM_DATA_DIR = WEB_DIR + '/oldpix'
-	ALBUM_WEB_DIR = ALBUM_DATA_DIR
+	@staticmethod
+	def image_web_root():
+		"""
+		HTTP root of the image files
+		"""
+		if Config.test:
+			return '/p'
+		else:
+			return '/oldpix'

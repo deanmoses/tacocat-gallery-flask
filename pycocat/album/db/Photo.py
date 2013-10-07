@@ -1,4 +1,4 @@
-from album_exceptions import ValidationException
+from pycocat.album.album_exceptions import ValidationException
 
 class Photo(object):
 	"""
@@ -6,23 +6,30 @@ class Photo(object):
 	"""
 
 	# My fields
-	__fields = ['title','description']
+	__fields = ['description','height','width']
 
 
-	def __init__(self, title=None, description=None):
-		self.title = title  # title of photo
+	def __init__(self, description=None, height=None, width=None):
 		self.description = description  # caption of photo, often contains HTML
+		self.height = None  # height of photo in px
+		self.width = None  # width of photo in px
+
+		if height:
+			self.height = long(height)
+
+		if width:
+			self.width = long(width)
 
 
 	def validate(self):
 		"""
 		Error if any of my fields are missing or invalid
 		"""
-		# ensure required fields aren't missing or blank
-		for field_name in ['title']:
-			if (not hasattr(self, field_name)) or (not getattr(self, field_name)):
-				raise ValidationException(field_name, "missing or blank")
-
+		smallest_size = 100
+		if long(self.height) < smallest_size:
+			raise ValidationException('height', "%s is smaller than %s" % (self.height, smallest_size))
+		if long(self.width) < smallest_size:
+			raise ValidationException('width', "%s is smaller than %s" % (self.width, smallest_size))
 
 
 	def to_dict(self):
@@ -49,15 +56,19 @@ class Photo(object):
 		Ignores dict attrs that aren't valid Photo attrs
 		"""
 		photo = Photo()
+		photo.update_from_dict(d)
+		return photo
 
-		# set non-required fields
+
+	def update_from_dict(self, d):
+		"""
+		Update the photo from the dict
+		"""
 		for field_name in Photo.__fields:
 			try:
-				setattr(photo, field_name, d[field_name])
+				setattr(self, field_name, d[field_name])
 			except KeyError:
 				pass
-
-		return photo
 
 
 	def __str__(self):

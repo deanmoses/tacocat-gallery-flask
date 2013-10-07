@@ -7,7 +7,7 @@ from werkzeug.exceptions import default_exceptions, HTTPException, Unauthorized,
 from werkzeug.utils import secure_filename
 from user.User import User
 from pycocat.album.album_exceptions import AlbumException
-import album.album_utils as album_utils
+from pycocat.album.AlbumService import AlbumService
 
 
 def msg(message):
@@ -200,7 +200,9 @@ def album(album_path):
 	# POST: create album
 	title = request.form.get('title')
 	summary = request.form.get('summary')
-	album_utils.create_album(album_path, title, summary)
+
+	service = AlbumService()
+	service.create_album(album_path, title, summary)
 	return msg("Album [%s]: created" % album_path)
 
 
